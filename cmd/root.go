@@ -31,5 +31,5 @@ func init() {
 	// If not provided, the project will be created in the current folder
 	rootCmd.PersistentFlags().String("folder", ".", "The folder in which the project will be created")
 
-	rootCmd.AddCommand(php.PhpCmd)
+	rootCmd.AddCommand(php.Cmd)
 }

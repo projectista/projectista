@@ -8,7 +8,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var PhpCmd = &cobra.Command{
+var Cmd = &cobra.Command{
 	Use:   "php",
 	Short: "Scaffold a PHP project",
 	Long: `Scaffold a PHP project.
@@ -22,5 +22,5 @@ projectionista php package my-package-name`,
 }
 
 func init() {
-	PhpCmd.AddCommand(PackageCmd)
+	Cmd.AddCommand(PackageCmd)
 }

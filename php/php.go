@@ -1,8 +1,8 @@
 package php
 
-import t "projectista/templates"
+import t "projectista/stubs"
 
-var rootDir = "templates/php/package/"
+var rootDir = "stubs/php/package/"
 var files = []string{
 	"composer.json",
 }

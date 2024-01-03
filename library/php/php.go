@@ -17,17 +17,18 @@ func Build(project library.Project) bool {
 
 	for _, file := range files {
 
-		fileContent, _ := stubs.FS.ReadFile(rootDir + file)
+		fileContent, err := stubs.FS.ReadFile(rootDir + file)
+		if err != nil {
+			panic(err)
+		}
 
-		tmpl, err := template.New("tpl").Parse(string(fileContent))
-
+		fileTemplate, err := template.New("tpl").Parse(string(fileContent))
 		if err != nil {
 			panic(err)
 		}
 
 		buffer := new(bytes.Buffer)
-		err = tmpl.Execute(buffer, project)
-
+		err = fileTemplate.Execute(buffer, project)
 		if err != nil {
 			panic(err)
 		}

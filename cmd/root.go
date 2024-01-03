@@ -11,7 +11,7 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 	"os"
-	php "projectista/library/php/cmd"
+	"projectista/library/php"
 )
 
 var rootCmd = &cobra.Command{

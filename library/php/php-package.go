@@ -8,8 +8,8 @@ import (
 	"bytes"
 	"github.com/spf13/cobra"
 	"os"
-	"projectista/project"
 	"projectista/stubs"
+	"projectista/writer"
 	"text/template"
 )
 
@@ -29,13 +29,14 @@ This command will create a PHP Package with
 	Run: func(cmd *cobra.Command, args []string) {
 
 		var projectName = args[0]
-		var rootFolder, _ = cmd.Flags().GetString("folder")
+		var outDirectory, _ = cmd.Flags().GetString("folder")
 
-		project := project.New(projectName, rootFolder)
+		parameters := make(map[string]string)
+		parameters["Name"] = projectName
 
-		println("Scaffolding the project " + project.Name() + " in the folder " + project.RootFolder())
+		println("Scaffolding the project " + projectName + " in the folder " + outDirectory)
 
-		scaffold(project)
+		scaffold(outDirectory, parameters)
 	},
 }
 
@@ -43,17 +44,14 @@ This command will create a PHP Package with
 Scaffolding logic
 */
 
-func scaffold(project *project.Project) bool {
+func scaffold(outDirectory string, parameters map[string]string) bool {
 
 	var rootDir = "stubs/php/package/"
 	var files = []string{
 		"composer.json",
 	}
 
-	if _, err := os.Stat(project.RootFolder()); os.IsNotExist(err) {
-		println("Folder", project.RootFolder(), "does not exists")
-		os.Exit(1)
-	}
+	_ = writer.New(outDirectory)
 
 	for _, file := range files {
 
@@ -68,12 +66,12 @@ func scaffold(project *project.Project) bool {
 		}
 
 		buffer := new(bytes.Buffer)
-		err = fileTemplate.Execute(buffer, project)
+		err = fileTemplate.Execute(buffer, parameters)
 		if err != nil {
 			panic(err)
 		}
 
-		err = os.WriteFile(project.RootFolder()+string(os.PathSeparator)+file, buffer.Bytes(), 0644)
+		err = os.WriteFile(outDirectory+string(os.PathSeparator)+file, buffer.Bytes(), 0644)
 		if err != nil {
 			return false
 		}

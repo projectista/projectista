@@ -16,7 +16,9 @@ var rootCmd = &cobra.Command{
 	Long: `A simple command line tool to scaffold projects.
 For example:
 
-projectista php package mypackage`,
+projectista php package mypackage
+projectista php package mypackage --folder=mypackage
+`,
 }
 
 func Execute() {

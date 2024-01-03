@@ -11,7 +11,7 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 	"os"
-	"projectista/library/php/cmd"
+	php "projectista/library/php/cmd"
 )
 
 var rootCmd = &cobra.Command{
@@ -37,5 +37,6 @@ func init() {
 	// If not provided, the project will be created in the current folder
 	rootCmd.PersistentFlags().String("folder", ".", "The folder in which the project will be created")
 
-	rootCmd.AddCommand(cmd.Cmd)
+	// Register sub-commands
+	rootCmd.AddCommand(php.Cmd)
 }

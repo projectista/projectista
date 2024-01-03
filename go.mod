@@ -1,4 +1,4 @@
-module projectionista
+module projectista
 
 go 1.19
 

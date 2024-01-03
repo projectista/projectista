@@ -1,2 +1,2 @@
-# projectionista
-The projectionista binary
+# projectista
+The projectista binary

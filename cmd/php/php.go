@@ -18,7 +18,7 @@ create.
 
 Example:
 
-projectionista php package my-package-name`,
+projectista php package my-package-name`,
 }
 
 func init() {

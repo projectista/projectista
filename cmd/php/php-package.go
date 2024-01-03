@@ -6,7 +6,7 @@ package php
 
 import (
 	"github.com/spf13/cobra"
-	"projectionista/php"
+	"projectista/php"
 )
 
 var PackageCmd = &cobra.Command{

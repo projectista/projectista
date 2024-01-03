@@ -1,6 +1,6 @@
 package php
 
-import t "projectionista/templates"
+import t "projectista/templates"
 
 var rootDir = "templates/php/package/"
 var files = []string{

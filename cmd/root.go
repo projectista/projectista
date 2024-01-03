@@ -7,16 +7,16 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 	"os"
-	"projectionista/cmd/php"
+	"projectista/cmd/php"
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "projectionista",
+	Use:   "projectista",
 	Short: "A simple command line tool to scaffold projects",
 	Long: `A simple command line tool to scaffold projects.
 For example:
 
-projectionista php package mypackage`,
+projectista php package mypackage`,
 }
 
 func Execute() {

@@ -6,6 +6,7 @@ package cmd
 
 import (
 	"github.com/spf13/cobra"
+	"projectista/library"
 	"projectista/library/php"
 )
 
@@ -20,11 +21,11 @@ This command will create a PHP Package with
 - C`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		var projectName = args[0]
-		var projectFolder, _ = cmd.Flags().GetString("folder")
+		project := library.Project{Name: args[0]}
+		project.RootFolder, _ = cmd.Flags().GetString("folder")
 
-		println("Scaffolding the project " + projectName + " in the folder " + projectFolder)
+		println("Scaffolding the project " + project.Name + " in the folder " + project.RootFolder)
 
-		php.Build()
+		php.Build(project)
 	},
 }

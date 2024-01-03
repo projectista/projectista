@@ -48,6 +48,11 @@ func scaffold(project library.Project) bool {
 		"composer.json",
 	}
 
+	if _, err := os.Stat(project.RootFolder); os.IsNotExist(err) {
+		println("Folder", project.RootFolder, "does not exists")
+		os.Exit(1)
+	}
+
 	for _, file := range files {
 
 		fileContent, err := stubs.FS.ReadFile(rootDir + file)
@@ -64,11 +69,6 @@ func scaffold(project library.Project) bool {
 		err = fileTemplate.Execute(buffer, project)
 		if err != nil {
 			panic(err)
-		}
-
-		if _, err := os.Stat(project.RootFolder); os.IsNotExist(err) {
-			println("Folder", project.RootFolder, "does not exists")
-			os.Exit(1)
 		}
 
 		err = os.WriteFile(project.RootFolder+string(os.PathSeparator)+file, buffer.Bytes(), 0644)

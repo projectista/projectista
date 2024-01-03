@@ -41,12 +41,12 @@ This command will create a PHP Package with
 Scaffolding logic
 */
 
-var rootDir = "stubs/php/package/"
-var files = []string{
-	"composer.json",
-}
-
 func scaffold(project library.Project) bool {
+
+	var rootDir = "stubs/php/package/"
+	var files = []string{
+		"composer.json",
+	}
 
 	for _, file := range files {
 

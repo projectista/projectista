@@ -1,5 +1,9 @@
 /*
 Copyright © 2024 Vincenzo Petrucci <vincenzo.petrucci@gmail.com>
+
+This file contains the main root command.
+Commands for specific project / language are defined in the
+library folder
 */
 
 package cmd
@@ -7,7 +11,7 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 	"os"
-	"projectista/cmd/php"
+	"projectista/library/php/cmd"
 )
 
 var rootCmd = &cobra.Command{
@@ -33,5 +37,5 @@ func init() {
 	// If not provided, the project will be created in the current folder
 	rootCmd.PersistentFlags().String("folder", ".", "The folder in which the project will be created")
 
-	rootCmd.AddCommand(php.Cmd)
+	rootCmd.AddCommand(cmd.Cmd)
 }

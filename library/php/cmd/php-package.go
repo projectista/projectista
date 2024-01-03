@@ -2,11 +2,11 @@
 Copyright © 2024 Vincenzo Petrucci <vincenzo.petrucci@gmail.com>
 */
 
-package php
+package cmd
 
 import (
 	"github.com/spf13/cobra"
-	"projectista/php"
+	"projectista/library/php"
 )
 
 var PackageCmd = &cobra.Command{

@@ -10,7 +10,7 @@ import (
 )
 
 var PackageCmd = &cobra.Command{
-	Use:   "package [project name]",
+	Use:   "package [projectName]",
 	Args:  cobra.ExactArgs(1),
 	Short: "Create a PHP Package",
 	Long: `Create a PHP Package.
@@ -21,11 +21,10 @@ This command will create a PHP Package with
 	Run: func(cmd *cobra.Command, args []string) {
 
 		var projectName = args[0]
+		var projectFolder, _ = cmd.Flags().GetString("folder")
 
-		println(projectName)
+		println("Scaffolding the project " + projectName + " in the folder " + projectFolder)
 
-		var a, _ = cmd.Flags().GetString("folder")
-		println(a)
 		php.Build()
 	},
 }

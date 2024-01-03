@@ -8,6 +8,7 @@ import (
 	"bytes"
 	"github.com/spf13/cobra"
 	"os"
+	"projectista/reader"
 	"projectista/stubs"
 	"projectista/writer"
 	"text/template"
@@ -46,16 +47,17 @@ Scaffolding logic
 
 func scaffold(outDirectory string, parameters map[string]string) bool {
 
-	var rootDir = "stubs/php/package/"
+	var sourceDirectory = "stubs/php/package/"
 	var files = []string{
 		"composer.json",
 	}
 
 	_ = writer.New(outDirectory)
+	_ = reader.New(sourceDirectory)
 
 	for _, file := range files {
 
-		fileContent, err := stubs.FS.ReadFile(rootDir + file)
+		fileContent, err := stubs.FS.ReadFile(sourceDirectory + file)
 		if err != nil {
 			panic(err)
 		}

@@ -5,13 +5,9 @@ Copyright © 2024 Vincenzo Petrucci <vincenzo.petrucci@gmail.com>
 package php
 
 import (
-	"bytes"
 	"github.com/spf13/cobra"
-	"os"
 	"projectista/reader"
-	"projectista/stubs"
 	"projectista/writer"
-	"text/template"
 )
 
 /*
@@ -52,31 +48,13 @@ func scaffold(outDirectory string, parameters map[string]string) bool {
 		"composer.json",
 	}
 
-	_ = writer.New(outDirectory)
-	_ = reader.New(sourceDirectory)
+	wHelper := writer.New(outDirectory)
+	rHelper := reader.New(sourceDirectory)
 
 	for _, file := range files {
+		pathToFile := wHelper.Write(file, rHelper.Parse(file, parameters))
 
-		fileContent, err := stubs.FS.ReadFile(sourceDirectory + file)
-		if err != nil {
-			panic(err)
-		}
-
-		fileTemplate, err := template.New("tpl").Parse(string(fileContent))
-		if err != nil {
-			panic(err)
-		}
-
-		buffer := new(bytes.Buffer)
-		err = fileTemplate.Execute(buffer, parameters)
-		if err != nil {
-			panic(err)
-		}
-
-		err = os.WriteFile(outDirectory+string(os.PathSeparator)+file, buffer.Bytes(), 0644)
-		if err != nil {
-			return false
-		}
+		println("Written", pathToFile)
 	}
 
 	return true

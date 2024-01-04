@@ -26,3 +26,17 @@ func New(outDirectory string) *Writer {
 func (t *Writer) OutDirectory() string {
 	return t.outDirectory
 }
+
+// Write will write the provided bytes into the provided file
+func (t *Writer) Write(file string, fileBytes []byte) string {
+	completePathToFile := t.outDirectory + string(os.PathSeparator) + file
+
+	err := os.WriteFile(
+		completePathToFile, fileBytes, 0644,
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	return completePathToFile
+}

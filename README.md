@@ -6,3 +6,7 @@
 
 Projectista is a single binary written in go that helps developers
 bootstrap a new application in their favorite programming language / framework.
+
+# Sponsor
+
+This project is sponsored by [illegal studio](https://illegal.studio)

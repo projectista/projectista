@@ -7,6 +7,7 @@ package php
 import (
 	"github.com/spf13/cobra"
 	"projectista/parser"
+	"projectista/printer"
 )
 
 /*
@@ -31,7 +32,7 @@ This command will create a PHP Package with
 		parameters["ProjectName"] = projectName
 		parameters["VendorName"] = "Vendor"
 
-		println("Scaffolding the project " + projectName + " in the folder " + outDirectory)
+		printer.Header("Scaffolding php-package: \nProject: " + projectName + "\n" + "Directory: " + outDirectory)
 
 		scaffold(outDirectory, parameters)
 	},

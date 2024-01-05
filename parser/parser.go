@@ -6,6 +6,7 @@ import (
 	"golang.org/x/text/language"
 	"io/fs"
 	"os"
+	"projectista/printer"
 	"projectista/stubs"
 	"slices"
 	"strings"
@@ -53,8 +54,9 @@ func (t *Parser) Walk(parameters map[string]string, excludedFiles []string) {
 		} else {
 			// Parse the current file only if it's not in the excludedFiles slice
 			if !slices.Contains(excludedFiles, cleanPath) {
+
 				pathToFile := t.write(cleanPath, t.parse(cleanPath, parameters))
-				println("Written", pathToFile)
+				printer.Info("Written " + pathToFile)
 			}
 		}
 		return nil

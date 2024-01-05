@@ -41,10 +41,10 @@ projectista php package myproject --folder="myproject"
 
 The command provides other flags to specify: 
 
-- **Author** of the project
-- **Email** of the author of the project
-- **Vendor** of the project
-- **Description** of the project
+- **Author** of the project,
+- **Email** of the author of the project,
+- **Vendor** of the project,
+- **Description** of the project.
 
 You can have more information using the bundled help:
 
@@ -61,6 +61,23 @@ projectista php package mypackage --author="Vincenzo Petrucci" --vendor="illegal
 ```bash
 projectista php package mypackage --description="My awesome project"
 ```
+
+# Build on your machine
+
+If you want to build the project on your machine you have to first clone it:
+
+```bash
+git clone --recurse-submodules git@github.com:projectista/projectista.git
+```
+
+Than you can proceed to the build stage:
+
+```bash
+cd projectista
+go build
+```
+
+The binary `projectista` will be available in the root of the project.
 
 # Sponsor
 

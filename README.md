@@ -31,6 +31,28 @@ projectista php package myproject --folder="myproject"
 
 **The folder must exists.**
 
+The command provides other flags to specify: 
+
+- **Author** of the project
+- **Email** of the author of the project
+- **Vendor** of the project
+- **Description** of the project
+
+You can have more information using the bundled help:
+
+```bash
+projectista php package --help
+```
+
+Some examples: 
+
+```bash
+projectista php package mypackage --author="Vincenzo Petrucci" --vendor="illegal studio"
+```
+
+```bash
+projectista php package mypackage --description="My awesome project"
+```
 
 # Sponsor
 

@@ -1,0 +1,3 @@
+[submodule "stubs/stubs/php/php-package"]
+	path = stubs/stubs/php/php-package
+	url = git@github.com:projectista/php-package.git

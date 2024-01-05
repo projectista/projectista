@@ -43,7 +43,7 @@ Scaffolding logic
 
 func scaffold(outDirectory string, parameters map[string]string) bool {
 
-	var sourceDirectory = "stubs/php/package/"
+	var sourceDirectory = "stubs/php/php-package/"
 	var files = []string{
 		"composer.json",
 	}

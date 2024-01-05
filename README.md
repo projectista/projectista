@@ -15,6 +15,14 @@ You can proceed with the scaffolding.
 
 This version only supports php packages, others options will be added.
 
+**Known issues**: 
+
+On `MacOS` you need to remove the quarantine flag from the binary before being able to execute it:
+
+```bash
+xattr -d com.apple.quarantine projectista
+```
+
 ## PHP package
 
 To scaffold a new project: 

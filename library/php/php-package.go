@@ -6,8 +6,7 @@ package php
 
 import (
 	"github.com/spf13/cobra"
-	"projectista/reader"
-	"projectista/writer"
+	"projectista/parser"
 )
 
 /*
@@ -29,7 +28,8 @@ This command will create a PHP Package with
 		var outDirectory, _ = cmd.Flags().GetString("folder")
 
 		parameters := make(map[string]string)
-		parameters["Name"] = projectName
+		parameters["ProjectName"] = projectName
+		parameters["VendorName"] = "Vendor"
 
 		println("Scaffolding the project " + projectName + " in the folder " + outDirectory)
 
@@ -43,19 +43,14 @@ Scaffolding logic
 
 func scaffold(outDirectory string, parameters map[string]string) bool {
 
-	var sourceDirectory = "stubs/php/php-package/"
-	var files = []string{
-		"composer.json",
+	var sourceDirectory = "stubs/php/php-package"
+
+	var excludedFiles = []string{
+		"/build.sh",
 	}
 
-	wHelper := writer.New(outDirectory)
-	rHelper := reader.New(sourceDirectory)
-
-	for _, file := range files {
-		pathToFile := wHelper.Write(file, rHelper.Parse(file, parameters))
-
-		println("Written", pathToFile)
-	}
+	rHelper := parser.New(sourceDirectory, outDirectory)
+	rHelper.Walk(parameters, excludedFiles)
 
 	return true
 }

@@ -22,5 +22,6 @@ projectista php package my-package-name`,
 }
 
 func init() {
+
 	Cmd.AddCommand(PackageCmd)
 }

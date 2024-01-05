@@ -2,5 +2,5 @@ package stubs
 
 import "embed"
 
-//go:embed "stubs"
+//go:embed all:stubs
 var FS embed.FS

@@ -17,25 +17,41 @@ Cobra command
 var PackageCmd = &cobra.Command{
 	Use:   "package [projectName]",
 	Args:  cobra.ExactArgs(1),
-	Short: "Create a PHP Package",
-	Long: `Create a PHP Package.
-This command will create a PHP Package with
-- A
-- B
-- C`,
+	Short: "Create a new PHP Package",
+	Long: `
+Create a new PHP Package.
+
+This command will create a PHP Package that includes:
+
+- Pest testing framwork
+- PHPStan static analysis
+- Pint integrtion
+
+The stubs are available on GitHub: https://github.com/projectista/php-package
+`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		var projectName = args[0]
-		var outDirectory, _ = cmd.Flags().GetString("folder")
+		outDirectory, _ := cmd.Flags().GetString("folder")
 
 		parameters := make(map[string]string)
-		parameters["ProjectName"] = projectName
-		parameters["VendorName"] = "Vendor"
+		parameters["ProjectName"] = args[0]
+		parameters["ProjectDescription"], _ = cmd.LocalFlags().GetString("description")
+		parameters["VendorName"], _ = cmd.LocalFlags().GetString("vendor")
+		parameters["AuthorName"], _ = cmd.LocalFlags().GetString("author")
+		parameters["AuthorEmail"], _ = cmd.LocalFlags().GetString("email")
 
-		printer.Header("Scaffolding php-package: \nProject: " + projectName + "\n" + "Directory: " + outDirectory)
+		printer.Header("Scaffolding php-package: \nProject: " + parameters["ProjectName"] + "\n" + "Directory: " + outDirectory)
 
 		scaffold(outDirectory, parameters)
 	},
+}
+
+func init() {
+
+	PackageCmd.Flags().StringP("description", "d", "A wonderful Projectista package", "The description for the project")
+	PackageCmd.Flags().StringP("vendor", "v", "Projectista", "The name of the vendor owning the project")
+	PackageCmd.Flags().StringP("author", "a", "Projectista User", "The name of the author of the package")
+	PackageCmd.Flags().StringP("email", "e", "me@example.com", "The email of the author of the package")
 }
 
 /*

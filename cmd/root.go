@@ -11,6 +11,7 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 	"os"
+	"projectista/library/laravel"
 	"projectista/library/php"
 )
 
@@ -41,4 +42,5 @@ func init() {
 
 	// Register sub-commands
 	rootCmd.AddCommand(php.Cmd)
+	rootCmd.AddCommand(laravel.Cmd)
 }

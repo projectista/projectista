@@ -23,6 +23,45 @@ On `MacOS` you need to remove the quarantine flag from the binary before being a
 xattr -d com.apple.quarantine projectista
 ```
 
+## Laravel Application
+
+To scaffold a new Laravel Application:
+
+```bash
+projectista laravel application myapplication
+```
+
+The project will be scaffolded in the current directory. To change directory use the provided flag:
+
+```bash
+projectista laravel application myapplication --folder="myapplication"
+```
+
+**The folder must exists.**
+
+The command provides other flags to specify:
+
+- **Author** of the project,
+- **Email** of the author of the project,
+- **Vendor** of the project,
+- **Description** of the project.
+
+You can have more information using the bundled help:
+
+```bash
+projectista laravel application --help
+```
+
+Some examples:
+
+```bash
+projectista laravel application myapplication --author="Vincenzo Petrucci" --vendor="illegal studio"
+```
+
+```bash
+projectista laravel application myapplication --description="My new Laravel application"
+```
+
 ## PHP package
 
 To scaffold a new project: 

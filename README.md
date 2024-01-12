@@ -2,6 +2,8 @@
   <img src="https://github.com/projectista/static/blob/main/logo/projectista@2x.png">
 </p>
 
+---
+
 # What is Projectista?
 
 Projectista is a single binary written in go that helps developers

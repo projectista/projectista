@@ -18,7 +18,7 @@ create.
 
 Example:
 
-projectista laravel dist my-package-name`,
+pi laravel dist my-package-name`,
 }
 
 func init() {

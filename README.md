@@ -11,18 +11,18 @@ bootstrap a new application in their favorite programming language / framework.
 
 # How to use it
 
-Download the binary from the `Releases` section on `GitHub` and place it in your path. 
+Download the `pi` binary from the `Releases` section on `GitHub` and place it in your path.
 
-You can proceed with the scaffolding. 
+You can proceed with the scaffolding.
 
 This version only supports php packages, others options will be added.
 
-**Known issues**: 
+**Known issues**:
 
 On `MacOS` you need to remove the quarantine flag from the binary before being able to execute it:
 
 ```bash
-xattr -d com.apple.quarantine projectista
+xattr -d com.apple.quarantine pi
 ```
 
 ## Laravel Application
@@ -30,13 +30,13 @@ xattr -d com.apple.quarantine projectista
 To scaffold a new Laravel Application:
 
 ```bash
-projectista laravel application myapplication
+pi laravel application myapplication
 ```
 
 The project will be scaffolded in the current directory. To change directory use the provided flag:
 
 ```bash
-projectista laravel application myapplication --folder="myapplication"
+pi laravel application myapplication --folder="myapplication"
 ```
 
 **The folder must exists.**
@@ -51,36 +51,36 @@ The command provides other flags to specify:
 You can have more information using the bundled help:
 
 ```bash
-projectista laravel application --help
+pi laravel application --help
 ```
 
 Some examples:
 
 ```bash
-projectista laravel application myapplication --author="Vincenzo Petrucci" --vendor="illegal studio"
+pi laravel application myapplication --author="Vincenzo Petrucci" --vendor="illegal studio"
 ```
 
 ```bash
-projectista laravel application myapplication --description="My new Laravel application"
+pi laravel application myapplication --description="My new Laravel application"
 ```
 
 ## PHP package
 
-To scaffold a new project: 
+To scaffold a new project:
 
 ```bash
-projectista php package myproject
+pi php package myproject
 ```
 
 The project will be scaffolded in the current directory. To change directory use the provided flag:
 
 ```bash
-projectista php package myproject --folder="myproject"
+pi php package myproject --folder="myproject"
 ```
 
 **The folder must exists.**
 
-The command provides other flags to specify: 
+The command provides other flags to specify:
 
 - **Author** of the project,
 - **Email** of the author of the project,
@@ -90,17 +90,17 @@ The command provides other flags to specify:
 You can have more information using the bundled help:
 
 ```bash
-projectista php package --help
+pi php package --help
 ```
 
-Some examples: 
+Some examples:
 
 ```bash
-projectista php package mypackage --author="Vincenzo Petrucci" --vendor="illegal studio"
+pi php package mypackage --author="Vincenzo Petrucci" --vendor="illegal studio"
 ```
 
 ```bash
-projectista php package mypackage --description="My awesome project"
+pi php package mypackage --description="My awesome project"
 ```
 
 # Build on your machine
@@ -119,6 +119,7 @@ go build
 ```
 
 The binary `projectista` will be available in the root of the project.
+Rename to `pi` if you whish, and place it in your path.
 
 # Sponsor
 

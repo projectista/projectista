@@ -16,13 +16,13 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "projectista",
+	Use:   "pi",
 	Short: "A simple command line tool to scaffold projects",
 	Long: `A simple command line tool to scaffold projects.
 For example:
 
-projectista php package mypackage
-projectista php package mypackage --folder=mypackage
+pi php package mypackage
+pi php package mypackage --folder=mypackage
 `,
 }
 

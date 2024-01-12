@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/projectista/static/blob/main/logo/projectista.png">
+  <img src="https://github.com/projectista/static/blob/main/logo/projectista@2x.png">
 </p>
 
 # What is Projectista?

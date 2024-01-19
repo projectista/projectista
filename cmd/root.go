@@ -15,11 +15,11 @@ import (
 	"projectista/library/php"
 )
 
-var Version = "1.0.2"
+var version = "1.0.2"
 
 var rootCmd = &cobra.Command{
 	Use:   "pi",
-	Version: Version,
+	Version: version,
 	Short: "Projectista is a simple command line tool to scaffold projects",
 	Long: `Projectista is a simple command line tool to scaffold projects.
 For example:

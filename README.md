@@ -19,11 +19,21 @@ This version only supports php packages, others options will be added.
 
 **Known issues**:
 
-On `MacOS` you need to remove the quarantine flag from the binary before being able to execute it:
+On `MacOS`, if you downloaded the binary using a browser, you need to remove the quarantine flag from the binary before being able to execute it:
 
 ```bash
 xattr -d com.apple.quarantine pi
 ```
+
+# Download from command line
+
+To download the latest version of the `pi` executable, using command line, you can use the following command (Replace the file name with the correct one for your architecture / operating system):
+
+```bash
+curl -s -L https://github.com/projectista/projectista/releases/latest/download/projectista_Darwin_arm64.tar.gz | gunzip -c - | tar xopf - pi
+```
+
+This command will place the `pi` executable in the current folder, you are free to move it in your path.
 
 ## Laravel Application
 

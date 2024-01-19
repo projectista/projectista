@@ -15,14 +15,17 @@ import (
 	"projectista/library/php"
 )
 
+var version = "1.0.2"
+
 var rootCmd = &cobra.Command{
-	Use:   "projectista",
-	Short: "A simple command line tool to scaffold projects",
-	Long: `A simple command line tool to scaffold projects.
+	Use:   "pi",
+	Version: version,
+	Short: "Projectista is a simple command line tool to scaffold projects",
+	Long: `Projectista is a simple command line tool to scaffold projects.
 For example:
 
-projectista php package mypackage
-projectista php package mypackage --folder=mypackage
+pi php package mypackage
+pi php package mypackage --folder=mypackage
 `,
 }
 
@@ -39,6 +42,9 @@ func init() {
 	// The folder in which the project will be created
 	// If not provided, the project will be created in the current folder
 	rootCmd.PersistentFlags().String("folder", ".", "The folder in which the project will be created")
+
+	// Set the version template
+	rootCmd.SetVersionTemplate("Projectista version {{.Version}}\n")
 
 	// Register sub-commands
 	rootCmd.AddCommand(php.Cmd)

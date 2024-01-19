@@ -5,7 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 1.0.2
 
-This release changes the binary name from `projectista` to `pi`
+This release:
+
+- changes the binary name from `projectista` to `pi`
+- adds the --version flag to the root command
 
 ## 1.0.1
 

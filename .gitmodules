@@ -4,3 +4,6 @@
 [submodule "stubs/stubs/laravel/laravel"]
 	path = stubs/stubs/laravel/laravel
 	url = git@github.com:projectista/laravel.git
+[submodule "stubs/stubs/laravel/laravel-package"]
+	path = stubs/stubs/laravel/laravel-package
+	url = git@github.com:projectista/laravel-package.git

@@ -6,7 +6,7 @@ package laravel
 
 import (
 	"github.com/spf13/cobra"
-	"projectista/parser"
+	"projectista/library"
 	"projectista/printer"
 )
 
@@ -32,6 +32,7 @@ The stubs are available on GitHub: https://github.com/projectista/laravel
 `,
 	Run: func(cmd *cobra.Command, args []string) {
 
+		sourceDirectory := "stubs/laravel/laravel"
 		outDirectory, _ := cmd.Flags().GetString("folder")
 
 		parameters := make(map[string]string)
@@ -41,9 +42,13 @@ The stubs are available on GitHub: https://github.com/projectista/laravel
 		parameters["AuthorName"], _ = cmd.LocalFlags().GetString("author")
 		parameters["AuthorEmail"], _ = cmd.LocalFlags().GetString("email")
 
+		excludedFiles := []string{
+			"/build.sh",
+		}
+
 		printer.Header("Scaffolding laravel application: \nProject: " + parameters["ProjectName"] + "\n" + "Directory: " + outDirectory)
 
-		scaffold(outDirectory, parameters)
+		library.Scaffold(sourceDirectory, outDirectory, parameters, excludedFiles)
 	},
 }
 
@@ -53,22 +58,4 @@ func init() {
 	ApplicationCmd.Flags().StringP("vendor", "v", "Projectista", "The name of the vendor owning the project")
 	ApplicationCmd.Flags().StringP("author", "a", "Projectista User", "The name of the author of the package")
 	ApplicationCmd.Flags().StringP("email", "e", "me@example.com", "The email of the author of the package")
-}
-
-/*
-Scaffolding logic
-*/
-
-func scaffold(outDirectory string, parameters map[string]string) bool {
-
-	var sourceDirectory = "stubs/laravel/laravel"
-
-	var excludedFiles = []string{
-		"/build.sh",
-	}
-
-	rHelper := parser.New(sourceDirectory, outDirectory)
-	rHelper.Walk(parameters, excludedFiles)
-
-	return true
 }

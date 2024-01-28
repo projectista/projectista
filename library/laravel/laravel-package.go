@@ -14,25 +14,24 @@ import (
 Cobra command
 */
 
-var ApplicationCmd = &cobra.Command{
-	Use:   "application [projectName]",
+var PackageCmd = &cobra.Command{
+	Use:   "package [projectName]",
 	Args:  cobra.ExactArgs(1),
-	Short: "Create a new Laravel Application",
+	Short: "Create a new Laravel Package",
 	Long: `
-Create a new Laravel Application.
+Create a new Laravel Package.
 
-This command will create a Laravel Application that includes:
+This command will create a Laravel Package that includes:
 
-- Laravel 10
 - Pest testing framework
 - PHPStan static analysis
 - Pint integrtion
 
-The stubs are available on GitHub: https://github.com/projectista/laravel
+The stubs are available on GitHub: https://github.com/projectista/laravel-package
 `,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		sourceDirectory := "stubs/laravel/laravel"
+		sourceDirectory := "stubs/laravel/laravel-package"
 		outDirectory, _ := cmd.Flags().GetString("folder")
 
 		parameters := make(map[string]string)
@@ -54,8 +53,8 @@ The stubs are available on GitHub: https://github.com/projectista/laravel
 
 func init() {
 
-	ApplicationCmd.Flags().StringP("description", "d", "A wonderful Projectista package", "The description for the project")
-	ApplicationCmd.Flags().StringP("vendor", "v", "Projectista", "The name of the vendor owning the project")
-	ApplicationCmd.Flags().StringP("author", "a", "Projectista User", "The name of the author of the package")
-	ApplicationCmd.Flags().StringP("email", "e", "me@example.com", "The email of the author of the package")
+	PackageCmd.Flags().StringP("description", "d", "A wonderful Projectista package", "The description for the project")
+	PackageCmd.Flags().StringP("vendor", "v", "Projectista", "The name of the vendor owning the project")
+	PackageCmd.Flags().StringP("author", "a", "Projectista User", "The name of the author of the package")
+	PackageCmd.Flags().StringP("email", "e", "me@example.com", "The email of the author of the package")
 }

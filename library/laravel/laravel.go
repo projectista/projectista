@@ -18,10 +18,12 @@ create.
 
 Example:
 
-pi laravel dist my-package-name`,
+pi laravel application my-application-name
+pi laravel package my-package-name`,
 }
 
 func init() {
 
 	Cmd.AddCommand(ApplicationCmd)
+	Cmd.AddCommand(PackageCmd)
 }

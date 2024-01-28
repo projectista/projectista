@@ -74,6 +74,45 @@ pi laravel application myapplication --author="Vincenzo Petrucci" --vendor="ille
 pi laravel application myapplication --description="My new Laravel application"
 ```
 
+## Laravel package
+
+To scaffold a new Laravel Package:
+
+```bash
+pi laravel package mypackage
+```
+
+The package will be scaffolded in the current directory. To change directory use the provided flag:
+
+```bash
+pi laravel package mypackage --folder="myapplication"
+```
+
+**The folder must exists.**
+
+The command provides other flags to specify:
+
+- **Author** of the project,
+- **Email** of the author of the project,
+- **Vendor** of the project,
+- **Description** of the project.
+
+You can have more information using the bundled help:
+
+```bash
+pi laravel package --help
+```
+
+Some examples:
+
+```bash
+pi laravel package mypackage --author="Vincenzo Petrucci" --vendor="illegal studio"
+```
+
+```bash
+pi laravel package mypackage --description="My new Laravel package"
+```
+
 ## PHP package
 
 To scaffold a new project:

@@ -15,7 +15,7 @@ import (
 	"projectista/library/php"
 )
 
-var version = "1.0.3"
+var version = "1.0.4"
 
 var rootCmd = &cobra.Command{
 	Use:   "pi",
